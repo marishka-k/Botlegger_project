@@ -1,0 +1,19 @@
+/* Шире 1440 контент по центру и не растягивается */
+.page {
+  position: relative;
+  max-width: var(--page-max);
+  margin: 0 auto;
+  overflow-x: clip;
+}
+
+.page__main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-gap);
+  padding: calc(var(--header-h) + var(--main-pad-top)) var(--page-pad) var(--section-gap);
+}
+
+/* Якоря не прячутся под фиксированной шапкой */
+.page__main section {
+  scroll-margin-top: calc(var(--header-h) + 20px);
+}

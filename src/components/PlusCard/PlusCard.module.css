@@ -1,0 +1,28 @@
+.plus-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px var(--plus-pad);
+  border: 2px solid var(--color-accent);
+  border-radius: var(--card-radius);
+}
+
+.plus-card__icon {
+  flex-shrink: 0;
+  width: var(--plus-icon);
+  height: var(--plus-icon);
+}
+
+.plus-card__text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  line-height: 1.17;
+}
+
+.plus-card__name {
+  font-size: var(--fs-card-name);
+  font-weight: 700;
+}

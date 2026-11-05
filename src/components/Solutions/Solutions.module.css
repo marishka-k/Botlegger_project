@@ -1,0 +1,17 @@
+.solutions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--title-gap);
+}
+
+.solutions__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--grid-gap-y) var(--grid-gap-x);
+}
+
+@media (min-width: 1024px) {
+  .solutions__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

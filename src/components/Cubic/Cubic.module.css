@@ -1,0 +1,63 @@
+.cubic {
+  display: flex;
+  flex-direction: column;
+  gap: var(--title-gap);
+}
+
+.cubic__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Кадрирование исходника 1920×1080 как в макете: окно 380×360 */
+.cubic__photo {
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 380 / 360;
+  overflow: hidden;
+}
+
+.cubic__image {
+  position: absolute;
+  top: -8.39%;
+  left: -54.23%;
+  width: 213.5%;
+  max-width: none;
+  height: 111.85%;
+}
+
+.cubic__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--list-gap);
+}
+
+.cubic__item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  line-height: 1.17;
+}
+
+.cubic__check {
+  flex-shrink: 0;
+  width: 20px;
+  height: 15px;
+}
+
+@media (min-width: 1024px) {
+  .cubic__body {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 50px;
+  }
+
+  .cubic__list {
+    flex: 1;
+    max-width: 810px;
+  }
+}

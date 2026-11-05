@@ -1,0 +1,17 @@
+.pluses {
+  display: flex;
+  flex-direction: column;
+  gap: var(--title-gap);
+}
+
+.pluses__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--grid-gap-y) var(--grid-gap-x);
+}
+
+@media (min-width: 1024px) {
+  .pluses__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

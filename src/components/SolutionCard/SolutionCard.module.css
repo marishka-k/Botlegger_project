@@ -1,0 +1,25 @@
+.solution-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px;
+  border-radius: var(--card-radius);
+  background: var(--color-card);
+}
+
+.solution-card__name {
+  font-size: var(--fs-card-name);
+  font-weight: 700;
+  text-align: center;
+}
+
+.solution-card__photo {
+  width: 100%;
+  height: var(--solution-img-h);
+}
+
+.solution-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
