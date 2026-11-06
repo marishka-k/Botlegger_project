@@ -7,6 +7,7 @@
   --color-text: #000000;
   --color-placeholder: #6a6a6a;
   --color-accent: #ffcc01;
+  --color-error: #c62828;
   --color-header-bg: rgba(228, 228, 228, 0.6);
 
   --font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
@@ -14,115 +15,241 @@
   /*
    * Три версии: мобильная (до 1023 px, макет 375), лаптоп (1024–1439 px,
    * макет 1024), десктоп (от 1440 px, макет 1440).
-   * ВНИМАНИЕ: значения мобильной и лаптопной версий пока предварительные —
-   * не сверены с фреймами 368:821 и 366:190 (лимит Figma MCP).
+   * Ниже — мобильная, остальные переопределяются медиазапросами.
+   * В макете у текстов обрезан интерлиньяж (text-box-trim), поэтому
+   * вертикальные отступы здесь меньше макетных на «воздух» строки.
    */
   --page-max: 1440px;
   --page-pad: 20px;
   --header-h: 70px;
-  --logo-size: 50px;
-  --radius-header: 15px;
+  --logo-size: 40px;
+  --radius-header: 0px;
 
-  /* Типографика (UI Kit: title / subtitle / menu / main_text / card_name) */
-  --fs-title: 28px;
-  --fs-subtitle: 22px;
-  --fs-menu: 18px;
-  --fs-text: 14px;
-  --fs-card-name: 14px;
+  /* Типографика (UI Kit: title / subtitle / menu / main_text / card_name / footer_text) */
+  --fs-title: 30px;
+  --fs-subtitle: 25px;
+  --fs-menu: 15px;
+  --fs-text: 12px;
+  --fs-card-name: 12px;
+  --fs-footer: 12px;
+  --fs-agreement: 11px;
+  --lh-text: 1.17;
 
   /* Отступы */
-  --main-pad-top: 120px; /* от верха страницы до первого экрана */
-  --section-gap: 60px; /* между разделами */
-  --title-gap: 30px; /* заголовок раздела → содержимое */
-  --grid-gap-x: 20px;
-  --grid-gap-y: 20px;
-  --list-gap: 16px;
+  --main-pad-top: 0px; /* от шапки до первого экрана */
+  --section-gap: 25px;
+  --title-gap: 18px;
+  --text-gap: 14px;
+  --list-gap: 11px;
+  --check-w: 12px;
+  --check-h: 9px;
 
   /* Кнопки */
-  --btn-pad: 18px 30px;
-  --btn-radius: 15px;
-  --btn-small-pad: 10px 16px;
-  --btn-small-radius: 10px;
-  --btn-small-fs: 14px;
+  --btn-h: 40px;
+  --btn-px: 21px;
+  --btn-radius: 10px;
+  --btn-small-h: 24px;
+  --btn-small-px: 10px;
+  --btn-small-radius: 8px;
+  --btn-small-fs: 12px;
 
   /* Первый экран */
-  --lead-gap: 60px;
-  --lead-text-gap: 24px;
-  --lead-pad-bottom: 60px;
+  --lead-text-gap: 14px;
+  --lead-gap: 90px;
+  --lead-pad-top: 0px;
+  --lead-pad-bottom: 40px;
+  --hero-w: 100%;
+
+  /* CUBIC */
+  --cubic-w: 185px;
+  --cubic-gap: 25px;
 
   /* Карточки */
-  --card-radius: 20px;
-  --plus-icon: 60px;
-  --plus-pad: 15px;
-  --solution-img-h: 220px;
+  --card-radius: 10px;
+  --plus-card-w: 278px;
+  --plus-pad-y: 10px;
+  --plus-pad-x: 10px;
+  --plus-inner-gap: 10px;
+  --plus-text-gap: 8px;
+  --plus-icon: 50px;
+  --grid-gap-x: 10px;
+  --grid-gap-y: 10px;
+  --solution-w: 162px;
+  --solution-pad-y: 15px;
+  --solution-pad-x: 10px;
+  --solution-img-h: 135px;
+
+  /* О нас и проекты */
+  --about-gap: 16px;
+  --partner-w: 162px;
+  --partner-h: 80px;
+  --partner-gap: 10px;
+  --project-w: 162px;
+  --project-h: 212px;
+  --project-radius: 15px;
+
+  /* Форма */
+  --form-w: 335px;
+  --form-pad-x: 20px;
+  --form-pad-y: 20px;
+  --form-radius: 15px;
+  --input-h: 29px;
+  --input-px: 10px;
+  --input-radius: 10px;
+  --field-gap: 20px;
+  --checkbox: 15px;
+
+  /* Подвал */
+  --footer-pad-top: 30px; /* форма стоит вплотную к подвалу */
+  --social-size: 20px;
+  --social-gap: 10px;
 }
 
-/* Лаптоп */
+/* Лаптоп — макет 1024 (366:190) */
 @media (min-width: 1024px) {
   :root {
-    --page-pad: 60px;
-    --header-h: 100px;
-    --logo-size: 64px;
-    --radius-header: 20px;
+    --page-pad: 50px;
+    --header-h: 80px;
+    --logo-size: 60px;
+    --radius-header: 15px;
 
-    --fs-title: 46px;
+    --fs-title: 40px;
     --fs-subtitle: 30px;
     --fs-menu: 20px;
     --fs-text: 16px;
     --fs-card-name: 16px;
+    --fs-footer: 16px;
+    --fs-agreement: 13px;
 
-    --main-pad-top: 160px;
-    --section-gap: 80px;
-    --title-gap: 45px;
-    --grid-gap-x: 30px;
-    --grid-gap-y: 24px;
-    --list-gap: 24px;
+    --main-pad-top: 105px;
+    --section-gap: 45px;
+    --title-gap: 20px;
+    --text-gap: 16px;
+    --list-gap: 22px;
+    --check-w: 16px;
+    --check-h: 12px;
 
-    --btn-pad: 20px 40px;
-    --btn-small-pad: 12px 18px;
+    --btn-h: 44px;
+    --btn-px: 30px;
+    --btn-radius: 13px;
+    --btn-small-h: 30px;
+    --btn-small-px: 16px;
+    --btn-small-radius: 10px;
     --btn-small-fs: 16px;
 
-    --lead-gap: 80px;
-    --lead-text-gap: 40px;
-    --lead-pad-bottom: 120px;
+    --lead-text-gap: 42px;
+    --lead-gap: 90px;
+    --lead-pad-bottom: 185px;
+    --hero-w: 554px;
 
-    --plus-icon: 80px;
-    --solution-img-h: 260px;
+    --cubic-w: 290px;
+    --cubic-gap: 50px;
+
+    --card-radius: 15px;
+    --plus-pad-y: 10px;
+    --plus-pad-x: 10px;
+    --plus-icon: 70px;
+    --plus-inner-gap: 10px;
+    --plus-text-gap: 6px;
+    --grid-gap-x: 20px;
+    --grid-gap-y: 15px;
+    --solution-pad-y: 30px;
+    --solution-pad-x: 20px;
+    --solution-img-h: 245px;
+
+    --about-gap: 25px;
+    --partner-w: 215px;
+    --partner-h: 105px;
+    --partner-gap: 10px;
+    --project-h: 387px;
+    --project-radius: 15px;
+
+    --form-w: 454px;
+    --form-pad-x: 30px;
+    --form-pad-y: 25px;
+    --input-h: 31px;
+    --input-px: 15px;
+    --field-gap: 20px;
+    --checkbox: 15px;
+
+    --footer-pad-top: 45px;
+    --social-size: 30px;
+    --social-gap: 20px;
   }
 }
 
-/* Десктоп — значения из макета 1440 (30:2) */
+/* Десктоп — макет 1440 (30:2) */
 @media (min-width: 1440px) {
   :root {
     --page-pad: 100px;
     --header-h: 120px;
     --logo-size: 80px;
+    --radius-header: 20px;
 
     --fs-title: 60px;
     --fs-subtitle: 40px;
     --fs-menu: 25px;
     --fs-text: 20px;
     --fs-card-name: 20px;
+    --fs-footer: 20px;
+    --fs-agreement: 16px;
 
-    --main-pad-top: 200px;
-    --section-gap: 100px;
-    --title-gap: 60px;
-    --grid-gap-x: 50px;
-    --grid-gap-y: 30px;
-    --list-gap: 30px;
+    --main-pad-top: 205px;
+    --section-gap: 85px;
+    --title-gap: 50px;
+    --text-gap: 30px;
+    --list-gap: 21px;
+    --check-w: 20px;
+    --check-h: 15px;
 
-    --btn-pad: 25px 50px;
+    --btn-h: 68px;
+    --btn-px: 50px;
     --btn-radius: 20px;
-    --btn-small-pad: 15px 20px;
+    --btn-small-h: 44px;
+    --btn-small-px: 20px;
     --btn-small-radius: 15px;
     --btn-small-fs: 20px;
 
-    --lead-gap: 100px;
-    --lead-text-gap: 50px;
-    --lead-pad-bottom: 180px;
+    --lead-text-gap: 30px;
+    --lead-gap: 90px;
+    --lead-pad-bottom: 170px;
+    --hero-w: 775px;
 
+    --cubic-w: 380px;
+    --cubic-gap: 50px;
+
+    --card-radius: 20px;
+    --plus-pad-y: 20px;
+    --plus-pad-x: 15px;
     --plus-icon: 100px;
+    --plus-inner-gap: 20px;
+    --plus-text-gap: 12px;
+    --grid-gap-x: 50px;
+    --grid-gap-y: 30px;
+    --solution-pad-y: 30px;
+    --solution-pad-x: 20px;
     --solution-img-h: 320px;
+
+    --about-gap: 55px;
+    --partner-w: 245px;
+    --partner-h: 120px;
+    --partner-gap: 10px;
+    --project-h: 500px;
+    --project-radius: 20px;
+
+    --form-w: 590px;
+    --form-pad-x: 48px;
+    --form-pad-y: 35px;
+    --form-radius: 20px;
+    --input-h: 44px;
+    --input-px: 20px;
+    --input-radius: 15px;
+    --field-gap: 30px;
+    --checkbox: 20px;
+
+    --footer-pad-top: 95px;
+    --social-size: 30px;
+    --social-gap: 20px;
   }
 }
 
@@ -145,7 +272,7 @@ body {
   font-family: var(--font-family);
   font-size: var(--fs-text);
   font-weight: 400;
-  line-height: normal;
+  line-height: var(--lh-text);
   overflow-x: hidden;
 }
 
@@ -157,6 +284,9 @@ h1,
 h2,
 h3,
 p,
+dl,
+dd,
+figure,
 ul {
   margin: 0;
 }

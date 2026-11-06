@@ -2,14 +2,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px 20px;
+  padding: var(--solution-pad-y) var(--solution-pad-x);
   border-radius: var(--card-radius);
   background: var(--color-card);
+  scroll-snap-align: start;
 }
 
 .solution-card__name {
   font-size: var(--fs-card-name);
   font-weight: 700;
+  line-height: 1;
   text-align: center;
 }
 

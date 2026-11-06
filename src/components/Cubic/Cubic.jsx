@@ -1,5 +1,6 @@
 import { cubic } from '../../data/content';
 import { asset } from '../../utils/asset';
+import CheckList from '../CheckList/CheckList';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import styles from './Cubic.module.css';
 
@@ -12,14 +13,7 @@ export default function Cubic() {
         <div className={styles.cubic__photo}>
           <img className={styles.cubic__image} src={asset('images/cubic-module.webp')} alt={cubic.imageAlt} />
         </div>
-        <ul className={styles.cubic__list}>
-          {cubic.advantages.map((item) => (
-            <li key={item} className={styles.cubic__item}>
-              <img className={styles.cubic__check} src={asset('images/icons/check.svg')} alt="" width="20" height="15" />
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
+        <CheckList className={styles.cubic__list} items={cubic.advantages} />
       </div>
     </section>
   );

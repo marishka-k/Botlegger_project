@@ -8,15 +8,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: var(--cubic-gap);
 }
 
 /* Кадрирование исходника 1920×1080 как в макете: окно 380×360 */
 .cubic__photo {
   position: relative;
   flex-shrink: 0;
-  width: 100%;
-  max-width: 380px;
+  width: var(--cubic-w);
   aspect-ratio: 380 / 360;
   overflow: hidden;
 }
@@ -31,29 +30,13 @@
 }
 
 .cubic__list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--list-gap);
-}
-
-.cubic__item {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  line-height: 1.17;
-}
-
-.cubic__check {
-  flex-shrink: 0;
-  width: 20px;
-  height: 15px;
+  align-self: stretch;
 }
 
 @media (min-width: 1024px) {
   .cubic__body {
     flex-direction: row;
-    align-items: flex-start;
-    gap: 50px;
+    align-items: center;
   }
 
   .cubic__list {

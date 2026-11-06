@@ -1,8 +1,8 @@
 .plus-card {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 20px var(--plus-pad);
+  gap: var(--plus-inner-gap);
+  padding: var(--plus-pad-y) var(--plus-pad-x);
   border: 2px solid var(--color-accent);
   border-radius: var(--card-radius);
 }
@@ -17,12 +17,12 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 12px;
+  gap: var(--plus-text-gap);
   min-width: 0;
-  line-height: 1.17;
 }
 
 .plus-card__name {
   font-size: var(--fs-card-name);
   font-weight: 700;
+  line-height: var(--lh-text);
 }

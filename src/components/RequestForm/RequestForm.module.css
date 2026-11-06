@@ -1,0 +1,61 @@
+/* Форма в жёлтой рамке по центру страницы */
+.request {
+  display: flex;
+  flex-direction: column;
+  gap: var(--title-gap);
+  width: 100%;
+  max-width: var(--form-w);
+  margin: 0 auto;
+  padding: var(--form-pad-y) var(--form-pad-x);
+  border: 2px solid var(--color-accent);
+  border-radius: var(--form-radius);
+}
+
+.request__title {
+  font-size: var(--fs-subtitle);
+  font-weight: 700;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.request__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--field-gap);
+}
+
+.request__fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--field-gap);
+}
+
+.request__agreements {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.request__submit {
+  align-self: center;
+  margin-top: calc(var(--field-gap) * 0.7);
+}
+
+/* Демо-сообщение вместо отправки (по образцу «Спасибо за заявку» из UI Kit) */
+.request__result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--field-gap);
+  padding: var(--field-gap) 0;
+  text-align: center;
+  outline: none;
+}
+
+.request__result-title {
+  font-size: var(--fs-card-name);
+  font-weight: 700;
+}

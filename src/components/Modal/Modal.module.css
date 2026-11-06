@@ -1,0 +1,105 @@
+/* Мобильная (368:774): окно на весь экран с прокруткой */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.45);
+  overflow-y: auto;
+  animation: modal-fade 0.2s ease-out;
+}
+
+.modal__dialog {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  background: var(--color-bg);
+  outline: none;
+}
+
+.modal__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin: -10px;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.modal__close:hover {
+  opacity: 0.7;
+}
+
+.modal__close-icon_size_laptop,
+.modal__close-icon_size_desktop {
+  display: none;
+}
+
+/* Лаптоп (366:336): окно по центру в жёлтой рамке */
+@media (min-width: 1024px) {
+  .modal {
+    align-items: center;
+    padding: 40px 20px;
+  }
+
+  .modal__dialog {
+    max-width: 924px;
+    min-height: 0;
+    margin: auto;
+    border: 2px solid var(--color-accent);
+    border-radius: 20px;
+  }
+
+  .modal__close {
+    top: 30px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .modal__close-icon_size_mobile {
+    display: none;
+  }
+
+  .modal__close-icon_size_laptop {
+    display: block;
+  }
+}
+
+/* Десктоп: по пропорциям 37:137 (1340×879) */
+@media (min-width: 1440px) {
+  .modal__dialog {
+    max-width: 1340px;
+    border-radius: 30px;
+  }
+
+  .modal__close {
+    top: 45px;
+    right: 45px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .modal__close-icon_size_laptop {
+    display: none;
+  }
+
+  .modal__close-icon_size_desktop {
+    display: block;
+  }
+}
+
+@keyframes modal-fade {
+  from {
+    opacity: 0;
+  }
+}

@@ -1,0 +1,41 @@
+.field {
+  position: relative;
+}
+
+.field__input {
+  display: block;
+  width: 100%;
+  height: var(--input-h);
+  padding: 0 var(--input-px);
+  border: 1px solid transparent;
+  border-radius: var(--input-radius);
+  background: var(--color-card);
+  font-size: var(--fs-text);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.field__input::placeholder {
+  color: var(--color-placeholder);
+  opacity: 1;
+}
+
+.field__input:focus-visible {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 1px var(--color-accent);
+}
+
+.field__input_invalid {
+  border-color: var(--color-error);
+}
+
+/* Ошибка под полем, не сдвигает раскладку */
+.field__error {
+  position: absolute;
+  top: 100%;
+  left: var(--input-px);
+  margin-top: 2px;
+  color: var(--color-error);
+  font-size: var(--fs-agreement);
+  line-height: 1.2;
+}

@@ -4,14 +4,32 @@
   gap: var(--title-gap);
 }
 
+/* Мобильная: сетка 3×3 шире экрана, листается по горизонтали (368:857) */
 .pluses__grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(3, var(--plus-card-w));
   gap: var(--grid-gap-y) var(--grid-gap-x);
+  margin: 0 calc(var(--page-pad) * -1);
+  padding: 0 var(--page-pad);
+  overflow-x: auto;
+  scroll-padding: 0 var(--page-pad);
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.pluses__grid::-webkit-scrollbar {
+  display: none;
+}
+
+.pluses__grid > li {
+  scroll-snap-align: start;
 }
 
 @media (min-width: 1024px) {
   .pluses__grid {
     grid-template-columns: repeat(3, 1fr);
+    margin: 0;
+    padding: 0;
+    overflow: visible;
   }
 }

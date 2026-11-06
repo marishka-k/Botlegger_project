@@ -1,0 +1,54 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: var(--title-gap);
+}
+
+.about__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--about-gap);
+}
+
+.about__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--text-gap);
+}
+
+.about__partners {
+  display: flex;
+  flex-direction: column;
+  gap: var(--partner-gap);
+  scroll-margin-top: calc(var(--header-h) + 20px);
+}
+
+.about__partner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.about__logo {
+  flex-shrink: 0;
+  width: var(--partner-w);
+  height: var(--partner-h);
+  object-fit: cover;
+}
+
+.about__label {
+  font-size: var(--fs-card-name);
+  font-weight: 700;
+}
+
+@media (min-width: 1024px) {
+  .about__body {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .about__text {
+    flex: 1;
+    max-width: 590px;
+  }
+}

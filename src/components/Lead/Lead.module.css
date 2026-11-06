@@ -1,5 +1,5 @@
-/* Десктоп/лаптоп: фото прижато к правому верхнему углу страницы, текст слева.
-   Мобильная версия — предварительно (фрейм 368:826 не сверен): фото над текстом. */
+/* Мобильная (368:826): фото на фоне под шапкой, текст по центру поверх него.
+   Лаптоп/десктоп: фото прижато к правому верхнему углу страницы, текст слева. */
 .lead {
   position: relative;
 }
@@ -9,9 +9,10 @@
   z-index: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: var(--lead-gap);
-  padding: 20px 0 var(--lead-pad-bottom);
+  padding: var(--lead-pad-top) 0 var(--lead-pad-bottom);
+  text-align: center;
 }
 
 .lead__text {
@@ -34,45 +35,76 @@
 }
 
 .lead__photo {
-  position: relative;
-  margin: 0 calc(var(--page-pad) * -1) 20px;
+  position: absolute;
+  top: calc((var(--header-h) + var(--main-pad-top)) * -1);
+  left: calc(var(--page-pad) * -1);
+  right: calc(var(--page-pad) * -1);
+  bottom: 0;
+  overflow: hidden;
 }
 
+/* Мобильная: фото заполняет фон первого экрана, прижато к верху */
 .lead__image {
   width: 100%;
-  height: auto;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center top;
 }
 
-/* Растушёвка: слева (317:158) и снизу (61:15) в цвет фона */
-.lead__photo::before,
+/* Мобильная: светлая вуаль под текстом и растушёвка снизу */
 .lead__photo::after {
   content: '';
   position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(228, 228, 228, 0.45) 0%,
+    rgba(228, 228, 228, 0.35) 75%,
+    var(--color-bg) 100%
+  );
   pointer-events: none;
 }
 
-.lead__photo::before {
-  top: 0;
-  bottom: 0;
-  left: -1.4%;
-  width: 24.4%;
-  background: linear-gradient(to left, rgba(228, 228, 228, 0) 0%, var(--color-bg) 80%);
-}
-
-.lead__photo::after {
-  left: 5.2%;
-  right: 0;
-  bottom: -4.1%;
-  height: 14.7%;
-  background: linear-gradient(to bottom, rgba(228, 228, 228, 0.2) 0%, var(--color-bg) 80%);
-}
-
 @media (min-width: 1024px) {
+  .lead__content {
+    align-items: flex-start;
+    text-align: left;
+  }
+
   .lead__photo {
+    left: auto;
+    bottom: auto;
+    width: var(--hero-w);
+    overflow: visible;
+  }
+
+  .lead__image {
+    height: auto;
+  }
+
+  /* Растушёвка: слева (317:158) и снизу (61:15) в цвет фона */
+  .lead__photo::before,
+  .lead__photo::after {
+    content: '';
     position: absolute;
-    top: calc((var(--header-h) + var(--main-pad-top)) * -1);
-    right: calc(var(--page-pad) * -1);
-    width: 62.5%; /* 775 из 1240 (ширина колонки) */
-    margin: 0;
+    inset: auto;
+    pointer-events: none;
+  }
+
+  .lead__photo::before {
+    top: 0;
+    bottom: 0;
+    left: -1.4%;
+    width: 24.4%;
+    background: linear-gradient(to left, rgba(228, 228, 228, 0) 0%, var(--color-bg) 80%);
+  }
+
+  .lead__photo::after {
+    left: 5.2%;
+    right: 0;
+    bottom: -4.1%;
+    height: 14.7%;
+    background: linear-gradient(to bottom, rgba(228, 228, 228, 0.2) 0%, var(--color-bg) 80%);
   }
 }

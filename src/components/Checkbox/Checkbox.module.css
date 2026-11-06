@@ -1,0 +1,31 @@
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--fs-agreement);
+  cursor: pointer;
+}
+
+.checkbox__box {
+  flex-shrink: 0;
+  width: var(--checkbox);
+  height: var(--checkbox);
+  border-radius: 3px;
+}
+
+.checkbox__input:focus-visible + .checkbox__box {
+  outline: 3px solid var(--color-text);
+  outline-offset: 2px;
+}
+
+.checkbox__label {
+  text-decoration: underline;
+}
+
+.checkbox_invalid .checkbox__box {
+  box-shadow: 0 0 0 1px var(--color-error);
+}
+
+.checkbox_invalid .checkbox__label {
+  color: var(--color-error);
+}

@@ -1,0 +1,174 @@
+/* Мобильная (368:774): всё в колонку, описание без внутренней прокрутки */
+.product {
+  --pad: 20px;
+  --fs-name: 25px;
+  --fs-sub: 15px;
+  --fs-body: 12px;
+  --term-w: 115px;
+  --scroll-h: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 45px var(--pad) 30px;
+  font-size: var(--fs-body);
+}
+
+.product__top {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.product__info {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+.product__title {
+  font-size: var(--fs-name);
+  font-weight: 700;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.product__subtitle {
+  font-size: var(--fs-sub);
+  font-weight: 700;
+}
+
+.product__list {
+  --list-gap: 10px;
+}
+
+/* Описание прокручивается, полоса — по UI Kit: жёлтая рамка, серый ползунок */
+.product__scroll {
+  max-height: var(--scroll-h);
+  padding-right: 12px;
+  overflow-y: auto;
+  scrollbar-color: var(--color-placeholder) transparent;
+}
+
+.product__scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.product__scroll::-webkit-scrollbar-track {
+  border: 1px solid var(--color-accent);
+  border-radius: 5px;
+}
+
+.product__scroll::-webkit-scrollbar-thumb {
+  border: 2px solid var(--color-bg);
+  border-radius: 5px;
+  background: var(--color-placeholder);
+}
+
+.product__specs {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.product__table {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.product__row {
+  display: grid;
+  grid-template-columns: var(--term-w) 1fr;
+  gap: 10px;
+}
+
+.product__term {
+  font-weight: 700;
+}
+
+.product__button {
+  align-self: center;
+}
+
+/* Лаптоп (366:336, 924×625) */
+@media (min-width: 1024px) {
+  .product {
+    --pad: 30px;
+    --fs-name: 30px;
+    --fs-sub: 20px;
+    --fs-body: 16px;
+    --term-w: 202px;
+    --scroll-h: 150px;
+
+    gap: 24px;
+    padding: 30px var(--pad);
+  }
+
+  .product__top {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 40px;
+    padding-left: 15px;
+  }
+
+  .product__info {
+    flex: 1;
+    gap: 16px;
+    padding-top: 10px;
+  }
+
+  .product__title {
+    padding: 0 40px;
+  }
+
+  .product__list {
+    --list-gap: 12px;
+  }
+
+  .product__table {
+    gap: 14px;
+  }
+}
+
+/* Десктоп: пропорции 37:137 (1340×879) */
+@media (min-width: 1440px) {
+  .product {
+    --pad: 45px;
+    --fs-name: 40px;
+    --fs-sub: 25px;
+    --fs-body: 20px;
+    --term-w: 300px;
+    --scroll-h: 230px;
+
+    gap: 36px;
+    padding: 45px var(--pad) 45px;
+  }
+
+  .product__top {
+    gap: 70px;
+    padding-left: 25px;
+  }
+
+  .product__info {
+    gap: 24px;
+    padding-top: 15px;
+  }
+
+  .product__title {
+    padding: 0 60px;
+  }
+
+  .product__list {
+    --list-gap: 18px;
+  }
+
+  .product__specs {
+    gap: 24px;
+  }
+
+  .product__table {
+    gap: 20px;
+  }
+}

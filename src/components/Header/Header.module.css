@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 10;
+  z-index: 20;
 }
 
 .header__inner {
@@ -20,6 +20,17 @@
   backdrop-filter: blur(4px);
 }
 
+.header_menu_open .header__inner {
+  background: var(--color-bg);
+  backdrop-filter: none;
+}
+
+.header__logo {
+  position: relative;
+  z-index: 1;
+  border-radius: 50%;
+}
+
 .header__logo img {
   width: var(--logo-size);
   height: var(--logo-size);
@@ -30,6 +41,7 @@
   padding: 10px;
   font-size: var(--fs-menu);
   font-weight: 700;
+  line-height: 1;
   white-space: nowrap;
   transition: color 0.2s;
 }
@@ -39,70 +51,32 @@
   color: var(--color-placeholder);
 }
 
-/* Мобильная: бургер + выпадающая панель */
+/* Мобильная: бургер и полноэкранное меню (370:1319) */
 .header__burger {
   position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 40px;
   height: 40px;
+  margin-right: -8px;
   padding: 0;
   border: 0;
   background: none;
 }
 
-.header__burger-line,
-.header__burger-line::before,
-.header__burger-line::after {
-  position: absolute;
-  left: 8px;
-  width: 24px;
-  height: 3px;
-  border-radius: 2px;
-  background: var(--color-text);
-  transition: transform 0.2s, background-color 0.2s;
-}
-
-.header__burger-line {
-  top: 50%;
-  margin-top: -1.5px;
-}
-
-.header__burger-line::before,
-.header__burger-line::after {
-  content: '';
-  left: 0;
-}
-
-.header__burger-line::before {
-  top: -8px;
-}
-
-.header__burger-line::after {
-  top: 8px;
-}
-
-.header__burger-line_open {
-  background: transparent;
-}
-
-.header__burger-line_open::before {
-  transform: translateY(8px) rotate(45deg);
-}
-
-.header__burger-line_open::after {
-  transform: translateY(-8px) rotate(-45deg);
-}
-
 .header__nav {
   position: fixed;
-  top: var(--header-h);
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   display: none;
   flex-direction: column;
-  gap: 10px;
-  padding: 30px var(--page-pad);
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: var(--header-h) var(--page-pad);
   background: var(--color-bg);
+  overflow-y: auto;
 }
 
 .header__nav_open {
@@ -112,7 +86,8 @@
 .header__list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: center;
+  gap: 6px;
 }
 
 @media (min-width: 1024px) {
@@ -125,10 +100,11 @@
     display: flex;
     flex: 1;
     flex-direction: row;
-    align-items: center;
     justify-content: space-between;
+    gap: 0;
     padding: 0;
     background: none;
+    overflow: visible;
   }
 
   .header__list {

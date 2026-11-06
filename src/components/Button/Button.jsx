@@ -1,8 +1,8 @@
 import { cx } from '../../utils/cx';
 import styles from './Button.module.css';
 
-// Жёлтая кнопка из UI Kit: size="large" — «Оставить заявку», size="small" — «Подробнее»
-export default function Button({ children, size = 'large', href, className, ...rest }) {
+// Жёлтая кнопка из UI Kit: size="large" — «Оставить заявку», size="small" — «Подробнее», «Отправить»
+export default function Button({ children, size = 'large', href, type = 'button', className, ...rest }) {
   const classes = cx(styles.button, styles[`button_size_${size}`], className);
 
   if (href) {
@@ -14,7 +14,7 @@ export default function Button({ children, size = 'large', href, className, ...r
   }
 
   return (
-    <button type="button" className={classes} {...rest}>
+    <button type={type} className={classes} {...rest}>
       {children}
     </button>
   );

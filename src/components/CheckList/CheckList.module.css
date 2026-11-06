@@ -1,0 +1,23 @@
+.check-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--list-gap);
+}
+
+.check-list__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.check-list__icon {
+  flex-shrink: 0;
+  width: var(--check-w);
+  height: var(--check-h);
+}
+
+@media (min-width: 1024px) {
+  .check-list__item {
+    gap: 20px;
+  }
+}
