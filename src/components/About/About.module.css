@@ -52,3 +52,23 @@
     max-width: 590px;
   }
 }
+
+/* Планшет: партнёры в ряд по три, логотип над подписью */
+@media (min-width: 600px) and (max-width: 1023px) {
+  .about__partners {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--grid-gap-x);
+  }
+
+  .about__partner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .about__logo {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 162 / 80;
+  }
+}
