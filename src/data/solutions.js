@@ -1,7 +1,7 @@
 // «Наши решения» (39:308) и карточки товара для модалки.
 // Тексты BARTENDER CUBIC — из макета карточки товара; ICE CREAM и BREAKFAST —
 // нейтральные тексты в том же стиле (в макете нарисована только карточка бара).
-// Галерея: ракурсы каждого комплекса из макета (у бара 3, у мороженого 4, у завтраков 2).
+// Галерея: по 3 ракурса каждого комплекса, как в UI Kit (слева, справа, спереди).
 
 const gallery = (id, name, count) =>
   Array.from({ length: count }, (_, i) => ({
@@ -37,7 +37,7 @@ export const solutions = [
     name: 'ICE CREAM CUBIC',
     image: 'solution-ice-cream.webp',
     alt: 'Робот-мороженщик ICE CREAM CUBIC',
-    gallery: gallery('ice-cream', 'ICE CREAM CUBIC', 4),
+    gallery: gallery('ice-cream', 'ICE CREAM CUBIC', 3),
     description: [
       'Автоматизированная система, которая готовит мягкое мороженое и десерты с топпингами по выбору гостя.',
       'Встроенный холодильный модуль поддерживает нужную температуру смеси.',
@@ -59,7 +59,7 @@ export const solutions = [
     name: 'BREAKFAST CUBIC',
     image: 'solution-breakfast.webp',
     alt: 'Робот для завтраков BREAKFAST CUBIC',
-    gallery: gallery('breakfast', 'BREAKFAST CUBIC', 2),
+    gallery: gallery('breakfast', 'BREAKFAST CUBIC', 3),
     description: [
       'Автоматизированная система, которая готовит каши, гранолу, йогурты и горячие напитки к завтраку.',
       'Ячейки хранения ингредиентов с контролем остатков.',
