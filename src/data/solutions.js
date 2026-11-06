@@ -1,13 +1,13 @@
 // «Наши решения» (39:308) и карточки товара для модалки.
 // Тексты BARTENDER CUBIC — из макета карточки товара; ICE CREAM и BREAKFAST —
 // нейтральные тексты в том же стиле (в макете нарисована только карточка бара).
-// Галерея: 3 ракурса каждого комплекса из UI Kit (вырезаны из выгрузки, 1x).
+// Галерея: ракурсы каждого комплекса из макета (у бара 3, у мороженого 4, у завтраков 2).
 
-const gallery = (id, name) => [
-  { src: `gallery/${id}-1.webp`, alt: `${name}: вид спереди слева` },
-  { src: `gallery/${id}-2.webp`, alt: `${name}: вид спереди справа` },
-  { src: `gallery/${id}-3.webp`, alt: `${name}: вид спереди` },
-];
+const gallery = (id, name, count) =>
+  Array.from({ length: count }, (_, i) => ({
+    src: `gallery/${id}-${i + 1}.webp`,
+    alt: `${name}: ракурс ${i + 1}`,
+  }));
 
 export const solutions = [
   {
@@ -15,7 +15,7 @@ export const solutions = [
     name: 'BARTENDER CUBIC',
     image: 'solution-bartender.webp',
     alt: 'Роботизированный бар BARTENDER CUBIC',
-    gallery: gallery('bartender', 'BARTENDER CUBIC'),
+    gallery: gallery('bartender', 'BARTENDER CUBIC', 3),
     description: [
       'Автоматизированная система, способная профессионально приготовить безалкогольные и алкогольные коктейли, лимонады, а также кофе.',
       'Надежный и герметичный беспроводной шейкерный узел, со специально разработанным захватом.',
@@ -37,7 +37,7 @@ export const solutions = [
     name: 'ICE CREAM CUBIC',
     image: 'solution-ice-cream.webp',
     alt: 'Робот-мороженщик ICE CREAM CUBIC',
-    gallery: gallery('ice-cream', 'ICE CREAM CUBIC'),
+    gallery: gallery('ice-cream', 'ICE CREAM CUBIC', 4),
     description: [
       'Автоматизированная система, которая готовит мягкое мороженое и десерты с топпингами по выбору гостя.',
       'Встроенный холодильный модуль поддерживает нужную температуру смеси.',
@@ -59,7 +59,7 @@ export const solutions = [
     name: 'BREAKFAST CUBIC',
     image: 'solution-breakfast.webp',
     alt: 'Робот для завтраков BREAKFAST CUBIC',
-    gallery: gallery('breakfast', 'BREAKFAST CUBIC'),
+    gallery: gallery('breakfast', 'BREAKFAST CUBIC', 2),
     description: [
       'Автоматизированная система, которая готовит каши, гранолу, йогурты и горячие напитки к завтраку.',
       'Ячейки хранения ингредиентов с контролем остатков.',
